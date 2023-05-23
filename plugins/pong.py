@@ -1,9 +1,9 @@
 import asyncio
 from datetime import datetime
 
-from ... import pandaub
-from . import mention
-from ..._misc.managers import edit_or_reply
+from userbot import pandaub
+from userbot.modules.telethon import mention
+from userbot._misc.managers import edit_or_reply
 from exportir import get_help
 
 
