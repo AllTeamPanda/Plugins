@@ -6,13 +6,13 @@ from userbot._database.dB.echo_db import add_echo, check_echo, list_echo, rem_ec
 
 from userbot._misc.managers import edit_delete, edit_or_reply
 from userbot._misc.tools import inline_mention
-
-from userbot.modules.telethon import get_user_from_event, ilhammansiz_cmd
+from userbot import PandaBot
+from userbot.modules.telethon import get_user_from_event
 
 plugin_category = "modules"
 
 
-@ilhammansiz_cmd(
+@PandaBot.ilhammansiz_cmd(
     pattern="addecho$",
     command=("addecho", plugin_category),
     info={
@@ -45,7 +45,7 @@ async def echo(e):
     
     
 
-@ilhammansiz_cmd(
+@PandaBot.ilhammansiz_cmd(
     pattern="delecho$",
     command=("delecho", plugin_category),
     info={
@@ -80,7 +80,7 @@ async def rm(e):
 
 
 
-@ilhammansiz_cmd(
+@PandaBot.ilhammansiz_cmd(
     pattern="listecho( -a)?$",
     command=("listecho", plugin_category),
     info={
@@ -106,7 +106,7 @@ async def lstecho(e):
         await edit_or_reply(e, "`List is Empty, For echo`")
         
 
-@ilhammansiz_cmd(incoming=True, edited=False)
+@PandaBot.ilhammansiz_cmd(incoming=True, edited=False)
 async def samereply(event):
     if check_echo(event.chat_id, event.sender_id) and (
         event.message.text or event.message.sticker
